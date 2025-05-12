@@ -1,24 +1,29 @@
-import { Container, Navbar, Stack } from "react-bootstrap";
-import { Link } from "react-router";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
-    <Navbar className="bg-body-tertiary">
-      <Container>
-        <Navbar.Collapse className="justify-content-end">
-          <Stack direction="horizontal" gap={3}>
-            <Link as="a" to="/" className="text-secondary">
-              Accueil
-            </Link>
-            <Link as="a" to="/category/Vêtement" className="text-secondary">
-              Vêtement
-            </Link>
-            <Link as="a" to="/category/Chaussures" className="text-secondary">
-              Chaussures
-            </Link>
-          </Stack>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <header>
+        <Navbar expand="lg" className="bg-body-tertiary">
+            <Container>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                <Nav>
+                    <Nav.Link as={Link} to="/" className="text-secondary">
+                        Accueil
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/category/Vêtement" className="text-secondary">
+                        Vêtement
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/category/Chaussures" className="text-secondary">
+                        Chaussures
+                    </Nav.Link>
+                </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    </header>
   );
 }
+
 export default Header;
