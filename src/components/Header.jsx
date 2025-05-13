@@ -5,7 +5,7 @@ import { useMatch } from "react-router";
 import "../css/Header.css";
 
 function Header() {
-  const match = useMatch("/Category/:id");
+  const match = useMatch("/category/:id");
   return (
     <header>
       <Navbar expand="lg" className="bg-body-tertiary">
