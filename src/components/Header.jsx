@@ -1,28 +1,45 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router";
+import { useMatch } from "react-router";
+
 import "../css/Header.css";
 
 function Header() {
+  const match = useMatch("/Category/:id");
   return (
     <header>
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                <Nav>
-                    <Nav.Link as={NavLink} to="/" className="text-secondary">
-                        Accueil
-                    </Nav.Link>
-                    <Nav.Link as={NavLink} to="/category/Vêtement" className="text-secondary">
-                        Vêtement
-                    </Nav.Link>
-                    <Nav.Link as={NavLink} to="/category/Chaussures" className="text-secondary">
-                        Chaussures
-                    </Nav.Link>
-                </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Text>
+            {match ? "Catégorie : " + match.params.id : "Bienvenue sur le site"}
+          </Navbar.Text>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-end"
+          >
+            <Nav>
+              <Nav.Link as={NavLink} to="/" className="text-secondary">
+                Accueil
+              </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/category/Vêtement"
+                className="text-secondary"
+              >
+                Vêtement
+              </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/category/Chaussures"
+                className="text-secondary"
+              >
+                Chaussures
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
   );
 }
